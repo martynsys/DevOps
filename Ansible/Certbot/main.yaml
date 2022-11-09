@@ -2,17 +2,19 @@
   hosts: ansible
   become: yes
   roles:
-    - role: certbot-install
-    - role: certbot-certificate-issuance
+  - role: certbot-install
+    install_snapd: false
+    snap_install_certbot: false
+  - role: certbot-certificate-issuance
     # Obtain (certonly, renew, run )
-      obtain: "run"
-      domains: 
-        - andy-test.ukad.dev
+    obtain: "run"
+    domains:
+    - andy-test.ukad.dev
     # Expiry (nginx, apache, standalone, manual,  webroot )
-      expiry: "nginx"
+    plugin: "nginx"
     # Place files in a server's webroot folder for authentication
-      webroot_dir: "/var/www/html"
-      email: "andriy.martynets@ukad-group.com"
+    webroot_dir: "/var/www/html"
+    email: "andriy.martynets@ukad-group.com"
     # Checkbox true false  
-      register_account: false
+    register_account: false
 

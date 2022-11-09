@@ -1,0 +1,16 @@
+argument_specs:
+   main:
+    short_description: The argument validation for certbot-install role.
+    options:
+      #Arguments#
+      install_snapd:
+          type: "bool"
+          required: false
+          default: false
+          description: Install Snapd
+      snap_install_certbot:
+          type: "bool"
+          required: false
+          default: false
+          description: Install snap Certbot
+          

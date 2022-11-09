@@ -1,0 +1,53 @@
+argument_specs:
+  main:
+    short_description: The argument validation for certbot-certificate-iisuance role.
+    options:
+      #Arguments#
+      obtain:
+          type: "str"
+          required: true
+          description: Specify method of starting a cerbot
+          choices:
+            - certonly
+            - renew
+            - run
+      domains:
+           type: "list"
+           elements: "str"
+           required: true
+           description: Specify a list of domains for which you want to issue a certificate.
+      plugin:
+           type: str
+           required: true
+           description: Specify the plugin for certificate issuance and validation
+           choices:
+              - nginx
+              - apache
+              - standalone
+              - manual
+              - webroot
+      webroot_dir:
+           type: str
+           required: false
+           default: "/var/www/html"
+           description: Place files in a server's webroot folder for authentication (plugin webroot)
+      email:
+           type: str
+           required: true
+           description: Email address for certificate issuance and validation, registrate account ACME server's
+      register_account:
+            type: "bool"
+            required: false
+            default: true
+            description: Registrate account ACME server's
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+---
+- name: Restart  nginx
+  ansible.builtin.systemd:
+    state: restarted
+    name: "{{plugin}}"
+  when: plugin == "nginx"
+
+- name: Restart apache
+  ansible.builtin.systemd:
+     state: restarted
+     name: "{{plugin}}"
+  when: plugin == "apache"
+
