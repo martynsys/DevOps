@@ -7,12 +7,12 @@
     snap_install_certbot: false
   - role: certbot-certificate-issuance
     # Obtain (certonly, renew, run )
-    obtain: "run"
+    obtain: "certonly"
     domains:
     - andy-test.ukad.dev
     # Expiry (nginx, apache, standalone, manual,  webroot )
-    plugin: "nginx"
-    # Place files in a server's webroot folder for authentication
+    plugin: "webroot"
+    # Place files in a server's webroot folder for authentication, default /var/www/html
     webroot_dir: "/var/www/html"
     email: "andriy.martynets@ukad-group.com"
     # Checkbox true false  

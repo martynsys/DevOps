@@ -1,22 +1,22 @@
 - name: Issuance certificate (nginx)
   shell: certbot {{obtain}} --nginx -d {{domains | join(',')}} --email {{email}} --non-interactive --agree-tos
-  when: expiry == "nginx"
+  when: plugin == "nginx"
 
 - name: Issuance certificate (webroot)
   shell: certbot {{obtain}} --webroot {{webroot_dir}} -d {{domains | join(',')}} --email {{email}} --non-interactive --agree-tos
-  when: expiry == "webroot"
+  when: plugin == "webroot"
 
 - name: Issuance certificate (apache)
   shell: certbot {{obtain}} --apache -d {{domains | join(',')}} --email {{email}} --non-interactive --agree-tos
-  when: expiry == "apache" 
+  when: plugin == "apache" 
 
 - name: Issuance certificate (standalone)
   shell: certbot {{obtain}} --standalone -d {{domains | join(',')}} --email {{email}} --non-interactive --agree-tos
-  when: expiry == "standalone"
+  when: plugin == "standalone"
 
 - name: Issuance certificate (manual)
   shell: certbot {{obtain}} --manual -d {{domains | join(',')}} --email {{email}} --non-interactive --agree-tos
-  when: expiry == "manual"
+  when: plugin == "manual"
 
 
 
