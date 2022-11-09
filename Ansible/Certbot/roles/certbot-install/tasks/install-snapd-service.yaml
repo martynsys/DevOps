@@ -1,0 +1,11 @@
+- name: Install snapd
+  apt:  
+   update_cache: yes
+   name: snapd
+   state: latest
+
+- name: Restart snapd
+  service:
+    name: snapd
+    state:  restarted
+    

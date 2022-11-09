@@ -1,0 +1,3 @@
+- name: Create an ACME account
+  shell: "certbot register --email {{email}} --non-interactive --agree-tos"
+  when: register_account == "true"

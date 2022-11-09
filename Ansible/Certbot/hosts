@@ -1,0 +1,2 @@
+[ansible]
+ansible-test  ansible_host=135.181.214.254 ansible_user=ansible ansible_port=11009
