@@ -1,8 +1,17 @@
-- name: Install snapd
-  apt:  
-   update_cache: yes
-   name: snapd
-   state: latest
+- name: Install snapd to Ubuntu servers
+  apt:
+    name: snapd
+    state: latest
+  when: ansible_facts['distribution'] == "Ubuntu" and install_snapd == true
 
+- name: Install snapd to Centos servers
+  yum:
+    name: snapd
+    state: latest
+  when: ansible_facts['distribution'] == "Centos" and install_snapd == true
 
-    
+- name: Install snapd to Debian servers
+  apt:
+    name: snapd
+    state: latest
+  when: ansible_facts['distribution'] == "Debian" and install_snapd == true

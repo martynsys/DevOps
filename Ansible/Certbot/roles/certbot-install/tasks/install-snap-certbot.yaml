@@ -3,3 +3,4 @@
     name:
      - certbot
     classic: yes
+  when: snap_install_certbot == true
