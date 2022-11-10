@@ -3,8 +3,8 @@
   become: yes
   roles:
   - role: certbot-install
-    install_snapd: true
-    snap_install_certbot: true
+    install_snapd: false
+    snap_install_certbot: false
   - role: certbot-certificate-issuance
     # Obtain (certonly, renew, run )
     obtain: "certonly"
@@ -16,5 +16,5 @@
     webroot_dir: "/var/www/html"
     email: "andriy.martynets@ukad-group.com"
     # Checkbox true false  
-    register_account: false
+    #register_account: false
 

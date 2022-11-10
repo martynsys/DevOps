@@ -1,3 +1,9 @@
+- name: Сheck if the ACME account for server exists or not
+  shell: |
+     certbot show_account > /tmp/certbot_show_account
+     grep -i "{{email}}" /tmp/certbot_show_account | awk -F ' ' '{print $3}'
+  register: acme_account
+
 - name: Create an ACME account
-  shell: "certbot register --email {{email}} --non-interactive --agree-tos"
-  when: register_account == "true"
+  shell: certbot register --email {{email}} --non-interactive --agree-tos
+  when: "{{'acme_account.stdout'}} != {{'email'}}"

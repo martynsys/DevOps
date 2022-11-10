@@ -35,11 +35,7 @@ argument_specs:
            type: str
            required: true
            description: Email address for certificate issuance and validation, registrate account ACME server's
-      register_account:
-            type: "bool"
-            required: false
-            default: true
-            description: Registrate account ACME server's
+      
 
 
 
