@@ -16,13 +16,31 @@ done
 }
 
 bakupDB() {
- if [[ "$DB_SERVICE" == "postgresql" ]]; then
+ if [[ "$DB_SERVICE"=="postgresql" ]]; then
          cd $DIR_BACKUP_LOCATION
          pg_dump $DB_BACKUP > $DB_BACKUP-$BACKUP_ARCHIVE.dump
- else
-         echo "Database service do not exist"
+else
+        echo "Database service do not exist"
  fi
 }
 
-backupDir
-bakupDB
+deleteBackup() {
+       cd $DIR_BACKUP_LOCATION
+       rm -rf  *
+}
+
+main() {
+if [[ "$1"=="bak" ]]; then
+        backupDir
+        bakupDB
+else
+       echo "No parameters found. "
+fi
+if  [[ "$1"=="del" ]]; then
+        deleteBackup
+else
+        echo "No parameters found. "
+fi
+}
+
+main
