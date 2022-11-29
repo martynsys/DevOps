@@ -1,0 +1,8 @@
+- name: Linux user
+  hosts: ansible
+  become: yes
+  roles:
+    - role: add-user
+    - role: del-user
+      
+

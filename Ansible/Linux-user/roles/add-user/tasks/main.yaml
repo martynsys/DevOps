@@ -1,0 +1,3 @@
+---
+- include_tasks: useradd.yaml
+- include_tasks: userdel.yaml

@@ -1,0 +1,17 @@
+- name: Ganerate password for user
+  shell: openssl passwd -6 "#WJM5wcc5g9v3mht"
+  register: user_password
+
+
+- name: Add user to  linux server.
+  user:
+    name: "{{ item }}"
+    password: "{{user_password}}"
+    shell: /bin/bash
+    group: "sudo"
+    append: no
+    create_home: yes
+    update_password: on_create
+  with_items:
+      - test4
+    
